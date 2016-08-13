@@ -5,15 +5,15 @@
  * Kits                 : LCD 16x2 , Potentiometer ,Bluetooth
  * Programmer           : Mohamed Nagy Mostafa
  ***************************************/
- //Libraries 
+/// Libraries 
 #include <LiquidCrystal.h>
 #include <SoftwareSerial.h>
 
-//Objects
+/// Objects
 LiquidCrystal lcd(2,3,4,5,6,7); //RS E D4 D5 D6 D7
 SoftwareSerial HC05(8,9); //TX RX
 
-///Constants
+/// Constants
 #define HOURS  24
 #define SECONDS 60
 #define MINUTES 60
@@ -21,56 +21,58 @@ SoftwareSerial HC05(8,9); //TX RX
 #define NON_FOCUS -1
 #define HALF_SECOND 500
 
-/* Buttons */
+/// Buttons 
 #define LEFT_BUTTON 76
 #define RIGHT_BUTTON 82
 #define UP_BUTTON 70
 #define DOWN_BUTTON 66
 
-///Global Variables
+/// Global Variables
 short hour,mint,sec;
 short index = NON_FOCUS; //Focusing item's index
 short command; //The Button that is clicked
 bool focusAvaliable = false; 
 
-///Functions
+/// Functions
 void display();
-/* To show clock on the screen */
+// To show clock on the screen 
 
 void focusToRight(short &index);
-/* To move The focus to right */
+// To move The focus to right */
 
 void focusToLeft(short &index);
-/* To move The focus to left */
+// To move The focus to left */
 
 void increasing(short &index,short *items[]);
-/* To increase the value of The selected item */
+// To increase the value of The selected item 
 
 void decreasing(short &index,short *items[]);
-/* To decrease the value of The selected item */
+// To decrease the value of The selected item 
 
 void focusing(short index,short *items[]);
-/* To show The focus in the screen */
+// To show The focus in the screen 
 
 void check(short command,short *item[]);
-/* To see the choice of the user */
+// To see the choice of the user
 
 void checkZero(short number);
-/* To add zero in the left side of number of hr/min/sec 
- *  when the number is lower than 10
- */
+// To add zero in the left side of number of hr/min/sec 
+// When the number is lower than 10
+
  
 void checkNight(short hour);
-/* To control of showing Pm/Am */
+// To control of showing Pm/Am
 
 void setup() 
 {
-    ///LCD Settings
+    /// LCD Settings
     lcd.begin(16,2);
     lcd.clear();
-    ///Bluetooth Settings
+    
+    /// Bluetooth Settings
     HC05.begin(9600);
-    ///Testing Settings
+    
+    /// Testing Settings
     Serial.begin(9600);
 }
 
@@ -170,10 +172,9 @@ void focusToLeft(short &index)
 
 void increasing(short &index,short *items[])
 {
-    /*
-     * Testing ...
-     */
-    Serial.print("Increasing");
+    
+      // Testing ...
+      Serial.print("Increasing");
     Serial.println(index);
     
     if(index == 0)
