@@ -20,6 +20,7 @@ SoftwareSerial HC05(8,9); //TX RX
 #define NUMBER_OF_ITEMS 3
 #define NON_FOCUS -1
 #define HALF_SECOND 500
+
 /* Buttons */
 #define LEFT_BUTTON 76
 #define RIGHT_BUTTON 82
@@ -35,22 +36,30 @@ bool focusAvaliable = false;
 ///Functions
 void display();
 /* To show clock on the screen */
+
 void focusToRight(short &index);
 /* To move The focus to right */
+
 void focusToLeft(short &index);
 /* To move The focus to left */
+
 void increasing(short &index,short *items[]);
 /* To increase the value of The selected item */
+
 void decreasing(short &index,short *items[]);
 /* To decrease the value of The selected item */
+
 void focusing(short index,short *items[]);
 /* To show The focus in the screen */
+
 void check(short command,short *item[]);
 /* To see the choice of the user */
+
 void checkZero(short number);
 /* To add zero in the left side of number of hr/min/sec 
  *  when the number is lower than 10
  */
+ 
 void checkNight(short hour);
 /* To control of showing Pm/Am */
 
