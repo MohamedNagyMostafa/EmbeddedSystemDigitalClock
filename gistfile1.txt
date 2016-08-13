@@ -20,6 +20,11 @@ SoftwareSerial HC05(8,9); //TX RX
 #define NUMBER_OF_ITEMS 3
 #define NON_FOCUS -1
 #define HALF_SECOND 500
+/* Buttons */
+#define LEFT_BUTTON 76
+#define RIGHT_BUTTON 82
+#define UP_BUTTON 70
+#define DOWN_BUTTON 66
 
 ///Global Variables
 short hour,mint,sec;
@@ -99,16 +104,16 @@ void check(short command, short *item[])
 {
     switch(command)
     {
-        case 82:
+        case RIGHT_BUTTON:
             focusToRight(index);
             break;
-        case 76:
+        case LEFT_BUTTON:
             focusToLeft(index);
             break;
-        case 70:
+        case UP_BUTTON:
             increasing(index,item);
             break;
-        case 66:
+        case DOWN_BUTTON:
             decreasing(index,item);
             break;
         default:
