@@ -5,7 +5,6 @@
  * Kits                 : LCD 16x2 , Potentiometer ,Bluetooth
  * Programmer           : Mohamed Nagy Mostafa
  ***************************************/
- 
  //Libraries 
 #include <LiquidCrystal.h>
 #include <SoftwareSerial.h>
@@ -20,6 +19,7 @@ SoftwareSerial HC05(8,9); //TX RX
 #define MINUTES 60
 #define NUMBER_OF_ITEMS 3
 #define NON_FOCUS -1
+#define HALF_SECOND 500
 
 ///Global Variables
 short hour,mint,sec;
@@ -72,11 +72,11 @@ void loop()
                 
                 lcd.clear();
                 display();
-                delay(500);
+                delay(HALF_SECOND);
                 
                 focusing(index,item);
                 
-                delay(500);
+                delay(HALF_SECOND);
                 display();
                 
                 delete item[NUMBER_OF_ITEMS];
