@@ -161,8 +161,12 @@ void focusToLeft(short &index)
 
 void increasing(short &index,short *items[])
 {
+    /*
+     * Testing ...
+     */
     Serial.print("Increasing");
     Serial.println(index);
+    
     if(index == 0)
     {
         if(*items[index] < HOURS - 1)
