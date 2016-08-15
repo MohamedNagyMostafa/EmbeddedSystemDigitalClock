@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         display(order);
     }
 
-
     private void displayPrice(int number)
     {
 
@@ -49,8 +49,10 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.checkBox);
         CheckBox checkBoxcho = (CheckBox)
                 findViewById(R.id.checkBoxCh);
+        EditText name = (EditText)
+                findViewById(R.id.textBox);
 
-        priceTextView.setText(ordering(number,"mohamed",
+        priceTextView.setText(ordering(number,name.getText().toString(),
                 checkBox.isChecked(),checkBoxcho.isChecked()));
     }
 
