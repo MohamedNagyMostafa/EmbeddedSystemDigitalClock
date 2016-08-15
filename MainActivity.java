@@ -13,8 +13,9 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private int order=0;
-    private final int prices=5;
-    private final int creama=2;
+    private final int oneCoffee =5;
+    private final int creamCost=2;
+    private final int chocolateCost = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void orderButton(View view) {
-        displayPrice(order * prices);
+        displayPrice(order * oneCoffee);
     }
 
 
@@ -34,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void decreasingButton(View view){
 
-      order = (order == 0)? 0 : --order;
-      display(order);
+        order = (order == 0)? 0 : --order;
+        display(order);
     }
 
 
@@ -46,9 +47,11 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.price_text_view);
         CheckBox checkBox = (CheckBox)
                 findViewById(R.id.checkBox);
+        CheckBox checkBoxcho = (CheckBox)
+                findViewById(R.id.checkBoxCh);
 
-        priceTextView.setText(ordering(order,prices,"mohamed",
-                checkBox.isChecked()));
+        priceTextView.setText(ordering(number,"mohamed",
+                checkBox.isChecked(),checkBoxcho.isChecked()));
     }
 
     private void display(int number) {
@@ -57,24 +60,28 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText(String.valueOf(number));
     }
 
-    private String ordering(int quemtity,int prices,String name,boolean cream){
+    private String ordering(int money,String name,
+                            boolean cream,boolean chocolate){
 
         String result = "Name: "+name
-                   +"\nQuantity: "+quemtity
-                   +"\nTotal: $"
-                    +creamIsAble(cream,quemtity)
-                    +"Thank You!";
+                +"\nQuantity: "+order
+                +checkTopping(cream,chocolate,money)
+                +"\nThank You!";
 
         return result;
     }
 
-    private String creamIsAble(boolean cream,int quemtity){
-        if(cream)
-            return ((creama*quemtity)+
-                    (order*prices)) +
-                    "\nWithCream\n";
-        else
-            return (order)*prices+"\n";
+    private String checkTopping(boolean cream,boolean chocolate,
+                                int money){
+        String ordering = "";
+
+        if(cream){
+            money = money + (creamCost * order);
+            ordering = ordering + "\nCreama is added";}
+
+        if(chocolate){
+            money = money + (chocolateCost * order);
+            ordering = ordering + "\nChocolate is added";}
+        return ordering+"\nTotal: $"+money;
     }
 }
-
