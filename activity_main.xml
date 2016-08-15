@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="16dp"
-        android:text="Quantity"
+        android:text="Topping"
         android:textAllCaps="true" />
 
     <CheckBox
