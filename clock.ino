@@ -5,15 +5,12 @@
  * Kits                 : LCD 16x2 , Potentiometer ,Bluetooth
  * Programmer           : Mohamed Nagy Mostafa
  ***************************************/
-/// Libraries 
 #include <LiquidCrystal.h>
 #include <SoftwareSerial.h>
 
-/// Objects
 LiquidCrystal lcd(2,3,4,5,6,7); //RS E D4 D5 D6 D7
 SoftwareSerial HC05(8,9); //TX RX
 
-/// Constants
 #define HOURS  24
 #define SECONDS 60
 #define MINUTES 60
@@ -27,13 +24,11 @@ SoftwareSerial HC05(8,9); //TX RX
 #define UP_BUTTON 70
 #define DOWN_BUTTON 66
 
-/// Global Variables
 short hour,mint,sec;
 short index = NON_FOCUS; //Focusing item's index
 short command; //The Button that is clicked
 bool focusAvaliable = false; 
 
-/// Functions
 void display();
 // To show clock on the screen 
 
